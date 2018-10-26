@@ -34,10 +34,11 @@ class MovieInfo:
         self.fetchDateTime,self.genre,self.language,self.movieUrl])
 
 class MultiPlexDetails:
-    name=None
-    id=None
+    multiPlexName=None
+    multiPlexId=None
     latitude=None
     longitude=None
-    subregion=None
+    subregionName=None
+    subregionId=None
     foodsales=None
     mticket=None
