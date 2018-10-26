@@ -1,7 +1,7 @@
 class MovieNameAndId:
-    movieNameFromUrl=''
-    movieId=''
-    movieNameProcessed=''
+    movieNameFromUrl=None
+    movieId=None
+    movieNameProcessed=None
     fetchDateTime=None
     #firstTimeAppearanceDate='' Have this column in the DB table when the 
     #lastTimeAppearanceDate=''
@@ -29,5 +29,8 @@ class MovieInfo:
     language=None
     movieUrl=None
 
+    def __iter__(self):
+        return iter([self.movieId,self.movieName,self.movieNameFromUrl,self.movieHeartRatingPercent,self.numOfVotes,self.critics_rating,self.user_rating,
+        self.fetchDateTime,self.genre,self.language,self.movieUrl])
 
     

@@ -23,7 +23,8 @@ class GetMovieNameAndIdList:
             r = requests.get(url=self.bmsUrl)
             webpage = html.fromstring(r.content)
             pattern = re.compile('.national-capital-region-ncr/movies.')
-            nowShowingMovieList = []
+            #nowShowingMovieList = []
+            nowShowingMovieList = {}
             regExpressionExtractions=RegularExpressionExtractions()
             helperFuncs = HelperFunctions()
             fetchDateTime = helperFuncs.GetFetchDateTime()
@@ -34,7 +35,8 @@ class GetMovieNameAndIdList:
                 if tup is not None:
                     #print(str(link))
                     movieNameAndId = MovieNameAndId(tup[0],tup[1],fetchDateTime)
-                    nowShowingMovieList.append(movieNameAndId)
+                    #nowShowingMovieList.append(movieNameAndId)
+                    nowShowingMovieList[tup[0]] = movieNameAndId
             
             return (nowShowingMovieList, fetchDateTime)
 
