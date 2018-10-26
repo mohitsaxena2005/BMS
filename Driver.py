@@ -3,6 +3,8 @@ from ScrapeBMSFirstTime import GetMovieNameAndIdList
 from FileWriter import FileWriter
 from GetFirstLevelDetails import GetFirstLevelDetails
 seedUrl = 'https://in.bookmyshow.com/national-capital-region-ncr/movies/'
+#bookTicketsUrl = 'https://in.bookmyshow.com/buytickets/{}-national-capital-region-ncr/movie-ncr-{}}-MT/{}'
+bookTicketsUrl = 'https://in.bookmyshow.com/buytickets/{movieNameFromUrl}-national-capital-region-ncr/movie-ncr-{MovieId}}-MT/{TodaysDate}'
 l = GetMovieNameAndIdList(seedUrl)
 x= l.GetList()
 #print(x)

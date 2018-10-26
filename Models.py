@@ -33,4 +33,11 @@ class MovieInfo:
         return iter([self.movieId,self.movieName,self.movieNameFromUrl,self.movieHeartRatingPercent,self.numOfVotes,self.critics_rating,self.user_rating,
         self.fetchDateTime,self.genre,self.language,self.movieUrl])
 
-    
+class MultiPlexDetails:
+    name=None
+    id=None
+    latitude=None
+    longitude=None
+    subregion=None
+    foodsales=None
+    mticket=None

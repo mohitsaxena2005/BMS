@@ -40,6 +40,7 @@ class GetFirstLevelDetails:
             info.user_rating = self.GetUserRating(soup)
             info.language = self.GetLanguage(soup)
             info.genre = self.GetGenreList(soup)
+        
         return self.movieInfoList
 
 

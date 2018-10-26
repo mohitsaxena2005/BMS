@@ -18,4 +18,7 @@ class HelperFunctions:
         x = int(tim.strftime('%M'))
         return dt.datetime(int(tim.strftime('%Y')),int(tim.strftime('%m')),int(tim.strftime('%d')),int(tim.strftime('%H')),self.GetMinutePart(x))
         
+    def GetDateAsYYYYMMDDFormat(self,fetchTime):
+        return fetchTime.strftime('%Y') + fetchTime.strftime('%m') +  fetchTime.strftime('%d')
+        
 

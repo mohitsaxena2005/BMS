@@ -18,5 +18,7 @@ def GetMinutePart(minutePart):
         return 45
 
 
-fetchDate = dt.datetime(int(tim.strftime('%Y')),int(tim.strftime('%m')),int(tim.strftime('%d')),int(tim.strftime('%H')),GetMinutePart(y))
-print(fetchDate)
+#fetchDate = dt.datetime(int(tim.strftime('%Y')),int(tim.strftime('%m')),int(tim.strftime('%d')),int(tim.strftime('%H')),GetMinutePart(y))
+print(tim.strftime('%Y') + tim.strftime('%m') + tim.strftime('%d'))
+#print(tim.strftime('%Y'))
+#print(fetchDate)
