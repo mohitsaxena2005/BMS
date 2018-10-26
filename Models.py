@@ -16,13 +16,18 @@ class MovieNameAndId:
         return iter([self.movieId, self.movieNameFromUrl, self.movieNameProcessed, self.fetchDateTime])
  
 
-class MovieDataOnHourlyBasis:
+class MovieInfo:
     movieName=None
+    movieNameFromUrl = None
+    movieId = None
     movieHeartRatingPercent=None
     numOfVotes=None
     critics_rating=None
     user_rating=None
     fetchDateTime = None
+    genre=None
+    language=None
+    movieUrl=None
 
 
     
