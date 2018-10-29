@@ -23,3 +23,16 @@ class FileWriter:
                 writer.writerow(list(row))
 
 
+    def WriteVenueList(self, venueInfoList, datetimeStamp):
+        fileName = 'venueInfo_' +  str(datetimeStamp).replace(' ','').replace(':','_') + '.csv'
+        with open(fileName, 'w') as csvFile:
+            writer = csv.writer(csvFile)
+            for row in venueInfoList:
+                writer.writerow(list(row))
+
+    def WriteShowTimeInfoList(self, showTimeInfoList, datetimeStamp):
+        fileName = 'showTimeInfo_' +  str(datetimeStamp).replace(' ','').replace(':','_') + '.csv'
+        with open(fileName, 'w') as csvFile:
+            writer = csv.writer(csvFile)
+            for row in showTimeInfoList:
+                writer.writerow(list(row))

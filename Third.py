@@ -19,22 +19,23 @@ x = soup.find('section', {'class':'phpShowtimes showtimes'})
 z = x.find_all('li', {'class' :'list'})
 for i in z:
     # Capture the Multiplex details over here and store it in file.
+    print('********************************************************************')
     print(i['data-name']) # Multiplex name - Carnival: Raheja Mall, Gurgaon
-    print(i['data-id'])    # Mutiplex Id - CGCG
-    print(i['data-sub-region-id'])    # Region Id = GURG
-    print(i['data-sub-region-name'])    # Region Id = GURG
-    print(i['data-lat'])    # Latitude
-    print(i['data-lng'])    # Longitude
-    print(i['data-allow-sales'])    # No idea
-    print(i['data-venue-app'])    # No idea
-    print(i['data-is-new-cinema'])    #
-    print(i['data-is-food-sales'])    #
-    print(i['data-is-multiplex'])    #
-    print(i['data-message-type'])    #
-    print(i['data-is-full-seat-layout'])    # No idea
-    print(i['data-has-mticket'])    # M tickets
-    print(i['data-has-cod'])    # No idea
-    print(i['data-has-cop'])    # No idea
+    # print(i['data-id'])    # Mutiplex Id - CGCG
+    # print(i['data-sub-region-id'])    # Region Id = GURG
+    # print(i['data-sub-region-name'])    # Region Id = GURG
+    # print(i['data-lat'])    # Latitude
+    # print(i['data-lng'])    # Longitude
+    # print(i['data-allow-sales'])    # No idea
+    # print(i['data-venue-app'])    # No idea
+    # print(i['data-is-new-cinema'])    #
+    # print(i['data-is-food-sales'])    #
+    # print(i['data-is-multiplex'])    #
+    # print(i['data-message-type'])    #
+    # print(i['data-is-full-seat-layout'])    # No idea
+    # print(i['data-has-mticket'])    # M tickets
+    # print(i['data-has-cod'])    # No idea
+    # print(i['data-has-cop'])    # No idea
     a = i.find('div', {'class' : 'body'})
     #print(a)
     for b in a:
@@ -53,10 +54,10 @@ for i in z:
                     print(e['desc'])
                     print(e['availabilityText'])
                     
-                break
+                
         except:
                 None
-    break
+    
     
 
     

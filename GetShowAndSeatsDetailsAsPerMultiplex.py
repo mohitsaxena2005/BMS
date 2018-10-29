@@ -3,7 +3,9 @@ import requests
 from bs4 import BeautifulSoup
 import io
 from lxml import html
-from Models import ShowVenueInfo, MovieShowTimeInfo
+from Models import MovieShowTimeInfo,ShowVenueInfo
+
+
 import json
 
 class GetShowSeatsMultiPlexDetails:
@@ -30,15 +32,27 @@ class GetShowSeatsMultiPlexDetails:
         for info in self.movieInfoList:
             #print(info.movieName, info.movieId)
             url = self.GetTheUrlForBookTicketsForMovie(info.movieNameFromUrl, info.movieId)
-            print(url)
+            #print(url)
             r = requests.get(url)
             soup = BeautifulSoup(r.content,"lxml")
             x = soup.find('section', {'class':'phpShowtimes showtimes'})
-            z = x.find_all('li', {'class' :'list'})
-            for i in z:
-                info = self.FillVenueList(i)
-                self.FillShowTimeList(i,info)
-                break
+            try:
+                z = x.find_all('li', {'class' :'list'})
+                for i in z:
+                    info = self.FillVenueList(i)
+                    self.FillShowTimeList(i,info)
+                    # print('Printing Venue list')
+                    # for t in self.venueList:
+                    #     print(t.VenueFullName)
+                
+                    # for t in self.showTimeInfoList:
+                    #     print(t.availableSeatsPercent)
+                    # break
+            except:
+                print('Error Occurrecd for URL -->> ', url)
+                None
+            
+            return (self.venueList, self.showTimeInfoList)
 
                
     def FillVenueList(self, venueDetails):
