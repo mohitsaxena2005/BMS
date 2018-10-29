@@ -2,9 +2,11 @@
 from ScrapeBMSFirstTime import GetMovieNameAndIdList
 from FileWriter import FileWriter
 from GetFirstLevelDetails import GetFirstLevelDetails
+from GetShowAndSeatsDetailsAsPerMultiplex import GetShowSeatsMultiPlexDetails
+
 seedUrl = 'https://in.bookmyshow.com/national-capital-region-ncr/movies/'
-#bookTicketsUrl = 'https://in.bookmyshow.com/buytickets/{}-national-capital-region-ncr/movie-ncr-{}}-MT/{}'
-bookTicketsUrl = 'https://in.bookmyshow.com/buytickets/{movieNameFromUrl}-national-capital-region-ncr/movie-ncr-{MovieId}}-MT/{TodaysDate}'
+bookTicketsUrl = 'https://in.bookmyshow.com/buytickets/{}-national-capital-region-ncr/movie-ncr-{}-MT/{}'
+#bookTicketsUrl = 'https://in.bookmyshow.com/buytickets/{movieNameFromUrl}-national-capital-region-ncr/movie-ncr-{MovieId}}-MT/{TodaysDate}'
 l = GetMovieNameAndIdList(seedUrl)
 x= l.GetList()
 #print(x)
@@ -17,9 +19,15 @@ x= l.GetList()
 
 details = GetFirstLevelDetails(seedUrl, x[0])
 movieInfoList = details.FillInMovieInfoDetails()
+# for x in movieInfoList:
+#     print(x.movieName)
+#     print(x.movieId)
 
-fw = FileWriter()
-fw.WriteFirstLevelDetailsToCSV(movieInfoList,x[1])
+# fw = FileWriter()
+# fw.WriteFirstLevelDetailsToCSV(movieInfoList,x[1])
+showDetails = GetShowSeatsMultiPlexDetails(movieInfoList, x[1],bookTicketsUrl)
+#showDetails.FillIntheShowAndMultiPlexDetails()
+
 
 
 
