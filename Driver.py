@@ -10,22 +10,22 @@ bookTicketsUrl = 'https://in.bookmyshow.com/buytickets/{}-national-capital-regio
 l = GetMovieNameAndIdList(seedUrl)
 x= l.GetList()
 
-# fw = FileWriter()
-# fw.WriteScapeBMSFirstTimeFileForListOfMovies(x[0],x[1])
+fw = FileWriter()
+fw.WriteScapeBMSFirstTimeFileForListOfMovies(x[0],x[1])
 
 details = GetFirstLevelDetails(seedUrl, x[0])
 movieInfoList = details.FillInMovieInfoDetails()
 
 
-# fw = FileWriter()
-# fw.WriteFirstLevelDetailsToCSV(movieInfoList,x[1])
+fw = FileWriter()
+fw.WriteFirstLevelDetailsToCSV(movieInfoList,x[1])
 
 showDetails = GetShowSeatsMultiPlexDetails(movieInfoList, x[1],bookTicketsUrl)
 venueAndShowTimeInfoLists = showDetails.FillIntheShowAndMultiPlexDetails()
 
-#fw = FileWriter()
-# fw.WriteVenueList(venueAndShowTimeInfoLists[0],x[1])
-# fw.WriteShowTimeInfoList(venueAndShowTimeInfoLists[1],x[1])
+fw = FileWriter()
+fw.WriteVenueList(venueAndShowTimeInfoLists[0],x[1])
+fw.WriteShowTimeInfoList(venueAndShowTimeInfoLists[1],x[1])
 
 
 

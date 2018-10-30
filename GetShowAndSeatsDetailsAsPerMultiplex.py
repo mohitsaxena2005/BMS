@@ -84,22 +84,35 @@ class GetShowSeatsMultiPlexDetails:
                 try:
                     if b['data-online'] == 'Y':
                         c=b.find_all('a')
-                        movieShowTimeInfo = MovieShowTimeInfo()
-                        movieShowTimeInfo.multiplexName = vInfo.VenueFullName
-                        movieShowTimeInfo.multiplexId = vInfo.VenueId
-                        movieShowTimeInfo.fetchDateTime = vInfo.FetchDateTime
-                        movieShowTimeInfo.availableSeatsPercent = c[0]['data-seats-percent']
-                        movieShowTimeInfo.showTimeCode = c[0]['data-showtime-code']
-                        movieShowTimeInfo.isAtmosEnabled = c[0]['data-is-atmos-enabled']
-                        movieShowTimeInfo.showTime = c[0]['data-date-time']
-                        movieShowTimeInfo.cutOffTime = c[0]['data-cut-off-date-time']
-                        movieShowTimeInfo.showTimeType = c[0]['data-showtime-filter-index']
+                        # movieShowTimeInfo = MovieShowTimeInfo()
+                        # movieShowTimeInfo.multiplexName = vInfo.VenueFullName
+                        # movieShowTimeInfo.multiplexId = vInfo.VenueId
+                        # movieShowTimeInfo.fetchDateTime = vInfo.FetchDateTime
+                        # movieShowTimeInfo.availableSeatsPercent = c[0]['data-seats-percent']
+                        # movieShowTimeInfo.showTimeCode = c[0]['data-showtime-code']
+                        # movieShowTimeInfo.isAtmosEnabled = c[0]['data-is-atmos-enabled']
+                        # movieShowTimeInfo.showTime = c[0]['data-date-time']
+                        # movieShowTimeInfo.cutOffTime = c[0]['data-cut-off-date-time']
+                        # movieShowTimeInfo.showTimeType = c[0]['data-showtime-filter-index']
                         
                         d=json.loads(c[0]['data-cat-popup'])
                         for e in d:
+                            movieShowTimeInfo = MovieShowTimeInfo()
+                            
                             movieShowTimeInfo.seatPrice=e['price']
                             movieShowTimeInfo.seatClass=e['desc']
                             movieShowTimeInfo.seatAvailabilityText=e['availabilityText']
+                            
+                            movieShowTimeInfo.multiplexName = vInfo.VenueFullName
+                            movieShowTimeInfo.multiplexId = vInfo.VenueId
+                            movieShowTimeInfo.fetchDateTime = vInfo.FetchDateTime
+                            movieShowTimeInfo.availableSeatsPercent = c[0]['data-seats-percent']
+                            movieShowTimeInfo.showTimeCode = c[0]['data-showtime-code']
+                            movieShowTimeInfo.isAtmosEnabled = c[0]['data-is-atmos-enabled']
+                            movieShowTimeInfo.showTime = c[0]['data-date-time']
+                            movieShowTimeInfo.cutOffTime = c[0]['data-cut-off-date-time']
+                            movieShowTimeInfo.showTimeType = c[0]['data-showtime-filter-index']
+
                             self.showTimeInfoList.append(movieShowTimeInfo)
                 except:
                         None
