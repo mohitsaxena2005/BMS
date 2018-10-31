@@ -34,7 +34,7 @@ def DriveScrape():
 
 
 scheduler = BlockingScheduler()
-scheduler.add_job(DriveScrape,'interval', minutes=20)
+scheduler.add_job(DriveScrape,'interval', hours=1, max_instances=48)
 scheduler.start()
 
 
